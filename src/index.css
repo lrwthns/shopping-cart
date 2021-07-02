@@ -1,0 +1,70 @@
+@font-face {
+  font-family: 'PlayfairDisplay';
+  src: url(./fonts/PlayfairDisplay-Regular.ttf),
+  url(./fonts/PlayfairDisplay-MediumItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Karla';
+  src: url(./fonts/Karla-ExtraLight.ttf);
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0px;
+}
+
+.App {
+  min-height: 100%;
+}
+
+.Navbar {
+  height: 10rem;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.Links {
+  font-size: 3rem;
+  font-family: 'Karla';
+  align-self: center;
+}
+
+.title {
+  font-family: 'PlayfairDisplay';
+  font-size: 5rem;
+  color: black;
+  padding-left: 5rem;
+  align-self: center;
+}
+
+.home-background {
+  width: 100%;
+}
+
+.home-background > img {
+  width: 100%;
+}
+
+.Shop {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.ProductCard {
+  width: 35rem;
+  font-size: 2rem;
+  font-family: 'Karla';
+}
+
+.ProductCard > img {
+  width: 100%;
+}
+
+a {
+  padding: 1rem;
+  text-decoration: none;
+}
