@@ -1,12 +1,18 @@
 @font-face {
   font-family: 'PlayfairDisplay';
-  src: url(./fonts/PlayfairDisplay-Regular.ttf),
-  url(./fonts/PlayfairDisplay-MediumItalic.ttf);
+  src: url(./fonts/PlayfairDisplay-Regular.ttf);
 }
 
 @font-face {
   font-family: 'Karla';
   src: url(./fonts/Karla-ExtraLight.ttf);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Karla';
+  src: url(./fonts/Karla-Regular.ttf);
+  font-weight: bold;
 }
 
 html, body, #root {
@@ -16,10 +22,13 @@ html, body, #root {
 
 .App {
   min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .Navbar {
   height: 10rem;
+  flex: 0 1 auto;
   display: grid;
   grid-template-columns: 3fr 1fr;
 }
@@ -36,6 +45,11 @@ html, body, #root {
   color: black;
   padding-left: 5rem;
   align-self: center;
+}
+
+.content {
+  flex: 1 1 auto;
+  display: flex;
 }
 
 .home-background {
@@ -62,6 +76,55 @@ html, body, #root {
 
 .ProductCard > img {
   width: 100%;
+}
+
+.Cart {
+  font-family: 'Karla';
+  width: 100%;
+  min-height: 100%;
+  font-size: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.cart-header {
+  text-align: center;
+}
+
+.CartItem {
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 5rem;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  font-size: 2rem;
+}
+
+.cartItem-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.CartItem > img {
+  width: 15rem;
+  grid-column: 1/2;
+  grid-row: 1/5;
+}
+
+.checkout-footer {
+  margin-top: auto;
+  color: black;
+  width: 100%;
+  height: 5rem;
+  font-size: 2.5rem;
+  border-top: 1px solid grey;
+  text-align: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  font-weight: bold;
 }
 
 a {

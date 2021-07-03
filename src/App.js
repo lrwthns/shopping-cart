@@ -10,6 +10,20 @@ import productList from "./products";
 function App() {
   const [products, setProducts] = useState(productList);
 
+  const [cartItems, setCartItems] = useState(
+    [{
+      index: 1,
+      quantity: 3,
+    },
+    {
+      index: 3,
+      quantity: 3,
+    },
+  ]
+  )
+
+  const [totalPrice, setTotalPrice] = useState(0);
+
   return (
     <Router>
     <div className="App">
@@ -23,7 +37,7 @@ function App() {
           <Shop products={products}/>
         </Route>
         <Route path='/cart'>
-          <Cart />
+          <Cart products={products} items={cartItems} total={totalPrice}/>
         </Route>
         <Route path='*'>
           <NotFound />

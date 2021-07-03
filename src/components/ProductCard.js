@@ -1,5 +1,5 @@
 const ProductCard = (props) => {
-  const {name, price, img1, img2} = props
+  const {name, price, img1, img2} = props;
   return (
     <div className="ProductCard">
       <img src={img1} alt=""/>
