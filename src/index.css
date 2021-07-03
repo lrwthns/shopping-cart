@@ -127,6 +127,20 @@ html, body, #root {
   font-weight: bold;
 }
 
+.ProductDetails {
+  width: 100%;
+  padding-left: 5rem;
+  box-sizing: border-box;
+  font-size: 3rem;
+  font-family: 'Karla';
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.ProductDetails > img {
+  width: 85%
+}
+
 a {
   padding: 1rem;
   text-decoration: none;
