@@ -1,14 +1,17 @@
 import ProductCard from "./ProductCard";
+import { Link } from "react-router-dom";
 
 const Shop = (props) => {
   const { products } = props;
   return (
     <div className="Shop">
       {
-        products.map(product => {
+        products.map((product, index) => {
           const {name, price, img1, img2} = product;
           return (
-          <ProductCard name={name} price={price} img1={img1} img2={img2}/>
+            <Link to={`/shop/${index}`}>
+              <ProductCard name={name} price={price} img1={img1} img2={img2}/>
+            </Link>
           )
         })
       }

@@ -6,6 +6,7 @@ import Cart from "./components/Cart";
 import NotFound from "./components/NotFound";
 import { useState } from "react";
 import productList from "./products";
+import ProductDetails from "./components/ProductDetails";
 
 function App() {
   const [products, setProducts] = useState(productList);
@@ -33,8 +34,11 @@ function App() {
         <Route path='/' exact>
           <Home />
         </Route>
-        <Route path='/shop'>
+        <Route path='/shop' exact>
           <Shop products={products}/>
+        </Route>
+        <Route path='/shop/:id'>
+          <ProductDetails products={products}/>
         </Route>
         <Route path='/cart'>
           <Cart products={products} items={cartItems} total={totalPrice}/>
