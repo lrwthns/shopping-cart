@@ -1,4 +1,5 @@
-const { Link } = require("react-router-dom")
+import { Link } from "react-router-dom";
+import { LocalMall }from '@material-ui/icons';
 
 const Navbar = () => {
   return (
@@ -7,7 +8,9 @@ const Navbar = () => {
       <div className="Links">
         <Link to='/'>Home</Link>
         <Link to='/shop'>Shop</Link>
-        <Link to='/cart'>Cart</Link>
+        <Link to='/cart'>
+          <LocalMall fontSize="large"></LocalMall>
+        </Link>
       </div>
     </div>
   );
