@@ -22,33 +22,46 @@ function App() {
   }, [cartItems]
   )
 
-  const changeState = (id) => {
+  const changeState = (id, deleteItem = false) => {
     console.log(id);
     const numId = parseInt(id);
+    let quantity = 1;
     let noSimilarItem = true;
-    for (let i = 0; i < cartItems.length; i++) {
-      if (cartItems[i].index === numId) {
-        noSimilarItem = false;
+      for (let i = 0; i < cartItems.length; i++) {
+        if (cartItems[i].index === numId) {
+          noSimilarItem = false;
+          quantity = cartItems[i].quantity;
+          if (deleteItem === true) {
+            setCartItems([
+              ...cartItems.slice(0, i),
+              ...cartItems.slice(i+1)
+            ])
+          } else {
+            setCartItems([
+              ...cartItems.slice(0, i),
+              {
+                index: cartItems[i].index,
+                quantity: cartItems[i].quantity + 1
+              },
+              ...cartItems.slice(i+1)
+            ])
+          }
+        }
+      }
+      if (noSimilarItem === true) {
         setCartItems([
-          ...cartItems.slice(0, i),
+          ...cartItems,
           {
-            index: cartItems[i].index,
-            quantity: cartItems[i].quantity + 1
-          },
-          ...cartItems.slice(i+1)
+            index: numId,
+            quantity: 1,
+          }
         ])
       }
-    }
-    if (noSimilarItem === true) {
-      setCartItems([
-        ...cartItems,
-        {
-          index: numId,
-          quantity: 1,
-        }
-      ])
-    }
-    setTotalQuantity(totalQuantity+1);
+      if (deleteItem === false) {
+        setTotalQuantity(totalQuantity+1);
+      } else {
+        setTotalQuantity(totalQuantity-quantity)
+      }
   }
 
   return (
@@ -67,7 +80,7 @@ function App() {
           <ProductDetails products={products} changeState={changeState}/>
         </Route>
         <Route path='/cart'>
-          <Cart products={products} items={cartItems} total={totalPrice}/>
+          <Cart products={products} items={cartItems} total={totalPrice} changeState={changeState}/>
         </Route>
         <Route path='*'>
           <NotFound />

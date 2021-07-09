@@ -1,5 +1,5 @@
 const CartItem = (props) => {
-  const { products, item } = props;
+  const { products, item, changeState } = props;
   return (
     <div className="CartItem">
     <img src={products[item.index].img1} alt=""/>
@@ -10,7 +10,7 @@ const CartItem = (props) => {
       <span>{item.quantity}</span>
       <button>+</button>
     </div>
-    <button>Delete</button>
+    <button onClick={() => changeState(item.index, true)}>Delete</button>
     </div>
   );
 }
