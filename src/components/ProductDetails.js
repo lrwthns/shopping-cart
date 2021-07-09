@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const ProductDetails = (props) => {
   const { id } = useParams();
@@ -8,8 +8,12 @@ const ProductDetails = (props) => {
       <img src={products[id].img1} alt={products[id].name}/>
       {/* <img src={products[id].img2} alt=""/> */}
       <div className="details">
-        <div className="productName">{products[id].name}</div>
-        <div className="productPrice">{products[id].price + ' USD'}</div>
+        <div className="product-name">{products[id].name}</div>
+        <div className="product-price">{products[id].price + ' USD'}</div>
+        <button className="add-to-cart">
+        Add to Cart
+        </button>
+        <Link to='/shop' className="go-back">{'< Go back'}</Link>
       </div>
     </div>
   );
