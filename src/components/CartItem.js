@@ -6,11 +6,11 @@ const CartItem = (props) => {
     <div className="item-name">{products[item.index].name}</div>
     <div className="item-price">{products[item.index].price + ' USD'}</div>
     <div className="quantity-adjust">
-      <button>-</button>
+      <button onClick={() => changeState(item.index, true)}>-</button>
       <span>{item.quantity}</span>
-      <button>+</button>
+      <button onClick={() => changeState(item.index)}>+</button>
     </div>
-    <button onClick={() => changeState(item.index, true)}>Delete</button>
+    <button onClick={() => changeState(item.index, false, true)}>Delete</button>
     </div>
   );
 }

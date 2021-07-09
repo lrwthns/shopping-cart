@@ -22,7 +22,7 @@ function App() {
   }, [cartItems]
   )
 
-  const changeState = (id, deleteItem = false) => {
+  const changeState = (id, substractItem = false, deleteItem = false) => {
     console.log(id);
     const numId = parseInt(id);
     let quantity = 1;
@@ -31,7 +31,23 @@ function App() {
         if (cartItems[i].index === numId) {
           noSimilarItem = false;
           quantity = cartItems[i].quantity;
-          if (deleteItem === true) {
+          if (substractItem === true) {
+            if (quantity > 1) {
+              setCartItems([
+                ...cartItems.slice(0, i),
+                {
+                  index: cartItems[i].index,
+                  quantity: quantity - 1
+                },
+                ...cartItems.slice(i+1)
+              ])
+            } else {
+              setCartItems([
+                ...cartItems.slice(0, i),
+                ...cartItems.slice(i+1)
+              ])
+            }
+          } else if (deleteItem === true) {
             setCartItems([
               ...cartItems.slice(0, i),
               ...cartItems.slice(i+1)
@@ -41,7 +57,7 @@ function App() {
               ...cartItems.slice(0, i),
               {
                 index: cartItems[i].index,
-                quantity: cartItems[i].quantity + 1
+                quantity: quantity + 1
               },
               ...cartItems.slice(i+1)
             ])
@@ -57,10 +73,12 @@ function App() {
           }
         ])
       }
-      if (deleteItem === false) {
-        setTotalQuantity(totalQuantity+1);
-      } else {
+      if (deleteItem === true) {
         setTotalQuantity(totalQuantity-quantity)
+      } else if (substractItem === true) {
+        setTotalQuantity(totalQuantity-1)
+      } else {
+        setTotalQuantity(totalQuantity+1);
       }
   }
 
