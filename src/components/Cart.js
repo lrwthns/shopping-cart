@@ -7,9 +7,9 @@ const Cart = (props) => {
       <div className="cart-header">MY SHOPPING CART</div>
       <div className="cartItem-container">
       {
-        items.map(item => {
+        items.map((item, index) => {
           return (
-            <CartItem products={products} item={item}/>
+            <CartItem products={products} item={item} key={index}/>
           )
         })
       }

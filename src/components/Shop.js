@@ -9,8 +9,8 @@ const Shop = (props) => {
         products.map((product, index) => {
           const {name, price, img1, img2} = product;
           return (
-            <Link to={`/shop/${index}`}>
-              <ProductCard name={name} price={price} img1={img1} img2={img2}/>
+            <Link to={`/shop/${index}`} key={index}>
+              <ProductCard name={name} price={price} img1={img1} img2={img2} key={index}/>
             </Link>
           )
         })

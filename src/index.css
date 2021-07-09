@@ -37,6 +37,13 @@ html, body, #root {
   font-size: 3rem;
   font-family: 'Karla';
   align-self: center;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-cart {
+  display: flex;
+  font-size: 2rem;
 }
 
 .title {
@@ -114,6 +121,19 @@ html, body, #root {
   grid-row: 1/5;
 }
 
+.CartItem > button {
+  font-family: Karla;
+  font-size: 1.5rem;
+  width: 6rem;
+  height: 3rem;
+  border: 1px solid darkgrey;
+}
+
+.CartItem > button:hover {
+  background: rgb(78, 78, 78);
+  color: white;
+}
+
 .quantity-adjust {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -126,6 +146,7 @@ html, body, #root {
   text-align: center;
   border-top: 1px solid darkgrey;
   border-bottom: 1px solid darkgrey;
+  font-size: 1.5rem;
 }
 
 .quantity-adjust > button {
@@ -193,10 +214,15 @@ html, body, #root {
 }
 
 .ProductDetails > img {
-  width: 85%
+  width: 80%
 }
 
 a {
   padding: 1rem;
   text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: rgb(39, 161, 209);
 }
