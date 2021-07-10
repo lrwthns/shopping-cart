@@ -59,12 +59,49 @@ html, body, #root {
   display: flex;
 }
 
-.home-background {
+.Home {
   width: 100%;
+  height: 48rem;
 }
 
-.home-background > img {
+.Carousel {
   width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.Carousel img {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.Carousel button {
+  font-size: 5rem;
+  background: transparent;
+  border: none;
+  font-family: Karla;
+  position: absolute;
+}
+
+.carousel-left {
+  left: 0;
+}
+
+.carousel-right {
+  right: 0;
+}
+
+.Carousel button:hover {
+  color: white;
+}
+
+.Carousel button:focus {
+  outline: none;
 }
 
 .Shop {
