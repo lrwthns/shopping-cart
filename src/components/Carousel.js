@@ -1,5 +1,8 @@
 import background1 from '../images/background1.jpeg'
 import background2 from '../images/background2.jpeg'
+import background3 from '../images/background3.jpeg'
+import background4 from '../images/background4.jpeg'
+
 import { useState } from 'react';
 
 const Carousel = () => {
@@ -11,7 +14,15 @@ const Carousel = () => {
     {
       title: 'Making Ceramics',
       img: background2
-    }
+    },
+    {
+      title: 'Minimalist Plate',
+      img: background3
+    },
+    {
+      title: 'Making Ceramics B&w',
+      img: background4
+    },
   ]
 
   const [ index, setIndex ] = useState(0);
