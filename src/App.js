@@ -9,7 +9,7 @@ import productList from "./products";
 import ProductDetails from "./components/ProductDetails";
 
 function App() {
-  const [products, setProducts] = useState(productList);
+  const [products] = useState(productList);
 
   const [cartItems, setCartItems] = useState([])
 
@@ -18,68 +18,70 @@ function App() {
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    console.log(cartItems)
-  }, [cartItems]
+    console.log(cartItems);
+    console.log(totalPrice);
+  }, [cartItems, totalPrice]
   )
 
   const changeState = (id, substractItem = false, deleteItem = false) => {
     console.log(id);
     const numId = parseInt(id);
-    let quantity = 1;
+    let price = products[numId].price;
     let noSimilarItem = true;
-      for (let i = 0; i < cartItems.length; i++) {
-        if (cartItems[i].index === numId) {
-          noSimilarItem = false;
-          quantity = cartItems[i].quantity;
-          if (substractItem === true) {
-            if (quantity > 1) {
-              setCartItems([
-                ...cartItems.slice(0, i),
-                {
-                  index: cartItems[i].index,
-                  quantity: quantity - 1
-                },
-                ...cartItems.slice(i+1)
-              ])
-            } else {
-              setCartItems([
-                ...cartItems.slice(0, i),
-                ...cartItems.slice(i+1)
-              ])
-            }
-          } else if (deleteItem === true) {
+    for (let i = 0; i < cartItems.length; i++) {
+      if (cartItems[i].index === numId) {
+        noSimilarItem = false;
+        let quantity = cartItems[i].quantity;
+        if (substractItem === true) {
+          if (quantity > 1) {
             setCartItems([
               ...cartItems.slice(0, i),
+              {
+                index: cartItems[i].index,
+                quantity: quantity - 1
+              },
               ...cartItems.slice(i+1)
             ])
           } else {
             setCartItems([
               ...cartItems.slice(0, i),
-              {
-                index: cartItems[i].index,
-                quantity: quantity + 1
-              },
               ...cartItems.slice(i+1)
             ])
-          }
+          };
+          setTotalQuantity(totalQuantity-1);
+          setTotalPrice(totalPrice-price);
+        } else if (deleteItem === true) {
+          setCartItems([
+            ...cartItems.slice(0, i),
+            ...cartItems.slice(i+1)
+          ]);
+          setTotalQuantity(totalQuantity-quantity);
+          setTotalPrice(totalPrice-(price * quantity));
+        } else {
+          setCartItems([
+            ...cartItems.slice(0, i),
+            {
+              index: cartItems[i].index,
+              quantity: quantity + 1
+            },
+            ...cartItems.slice(i+1)
+          ]);
+          setTotalQuantity(totalQuantity+1);
+          setTotalPrice(totalPrice+price);
         }
       }
-      if (noSimilarItem === true) {
-        setCartItems([
-          ...cartItems,
-          {
-            index: numId,
-            quantity: 1,
-          }
-        ])
-      }
-      if (deleteItem === true) {
-        setTotalQuantity(totalQuantity-quantity)
-      } else if (substractItem === true) {
-        setTotalQuantity(totalQuantity-1)
-      } else {
-        setTotalQuantity(totalQuantity+1);
-      }
+    }
+    if (noSimilarItem === true) {
+      setCartItems([
+        ...cartItems,
+        {
+          index: numId,
+          quantity: 1,
+        }
+      ]);
+      setTotalQuantity(totalQuantity+1);
+      setTotalPrice(totalPrice+price);
+    }
   }
 
   return (
