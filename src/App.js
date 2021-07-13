@@ -9,6 +9,7 @@ import productList from "./products";
 import ProductDetails from "./components/ProductDetails";
 
 function App() {
+  // Set the states for the app
   const [products] = useState(productList);
 
   const [cartItems, setCartItems] = useState([])
@@ -17,20 +18,26 @@ function App() {
 
   const [totalPrice, setTotalPrice] = useState(0);
 
+  // Shows the states to help me define the logic in changeState, may delete later
   useEffect(() => {
     console.log(cartItems);
     console.log(totalPrice);
   }, [cartItems, totalPrice]);
 
+  // This is the main function where the states are updated
   const changeState = (id, substractItem = false, deleteItem = false) => {
     console.log(id);
+    // Changes the string id into number
     const numId = parseInt(id);
     let price = products[numId].price;
+    // This is to help with checking if there's already a similar item in the cartItems
     let noSimilarItem = true;
     for (let i = 0; i < cartItems.length; i++) {
+      // This searches the item in cartItems with the index of id 
       if (cartItems[i].index === numId) {
         noSimilarItem = false;
         let quantity = cartItems[i].quantity;
+        // If changeState is called from the minus button in quantity adjuster it goes here
         if (substractItem === true) {
           if (quantity > 1) {
             setCartItems([
@@ -41,6 +48,7 @@ function App() {
               },
               ...cartItems.slice(i+1)
             ]);
+          // If quantity is 1 then delete the item object from cartItem
           } else {
             setCartItems([
               ...cartItems.slice(0, i),
@@ -49,6 +57,7 @@ function App() {
           };
           setTotalQuantity(totalQuantity-1);
           setTotalPrice(totalPrice-price);
+        // If changeState is called from a delete button, it goes here
         } else if (deleteItem === true) {
           setCartItems([
             ...cartItems.slice(0, i),
@@ -56,6 +65,7 @@ function App() {
           ]);
           setTotalQuantity(totalQuantity-quantity);
           setTotalPrice(totalPrice-(price * quantity));
+        // Else it is probably an addition to quantity, so it goes here 
         } else {
           setCartItems([
             ...cartItems.slice(0, i),
@@ -70,6 +80,7 @@ function App() {
         }
       }
     }
+    // If no item with the same id is found in cartItem, a new object is created here
     if (noSimilarItem === true) {
       setCartItems([
         ...cartItems,
