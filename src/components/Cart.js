@@ -8,13 +8,16 @@ const Cart = (props) => {
       <div className="cart-header">MY SHOPPING CART</div>
       { items.length === 0 && <div className="empty-cart">Your cart is empty.</div> }
       <div className="cartItem-container">
-      {
-        items.map((item, index) => {
-          return (
-            <CartItem products={products} item={item} changeState={changeState} key={index}/>
-          )
-        })
-      }
+      {items.map((item, index) => {
+        return (
+          <CartItem 
+          products={products} 
+          item={item} 
+          changeState={changeState} 
+          key={index}
+          />
+        );
+      })}
       </div>
       <div className="checkout-footer">
         <Link to='/shop'>{'< Go Back'}</Link>
@@ -23,6 +26,6 @@ const Cart = (props) => {
       </div>
     </div>
   );
-}
+};
  
 export default Cart;

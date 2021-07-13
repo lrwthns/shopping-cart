@@ -9,21 +9,21 @@ const Carousel = () => {
   const images = [
     {
       title: 'Ceramics and Fruits',
-      img: background1
+      img: background1,
     },
     {
       title: 'Making Ceramics',
-      img: background2
+      img: background2,
     },
     {
       title: 'Minimalist Plate',
-      img: background3
+      img: background3,
     },
     {
       title: 'Making Ceramics B&w',
-      img: background4
+      img: background4,
     },
-  ]
+  ];
 
   const [ index, setIndex ] = useState(0);
 
@@ -34,11 +34,11 @@ const Carousel = () => {
     } else {
       setIndex(nextIndex);
     }
-  }
+  };
 
   const slideRight= () => {
     setIndex((index + 1) % images.length); 
-  }
+  };
 
   return (
     <div className="Carousel">

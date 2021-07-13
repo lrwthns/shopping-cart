@@ -20,8 +20,7 @@ function App() {
   useEffect(() => {
     console.log(cartItems);
     console.log(totalPrice);
-  }, [cartItems, totalPrice]
-  )
+  }, [cartItems, totalPrice]);
 
   const changeState = (id, substractItem = false, deleteItem = false) => {
     console.log(id);
@@ -41,12 +40,12 @@ function App() {
                 quantity: quantity - 1
               },
               ...cartItems.slice(i+1)
-            ])
+            ]);
           } else {
             setCartItems([
               ...cartItems.slice(0, i),
               ...cartItems.slice(i+1)
-            ])
+            ]);
           };
           setTotalQuantity(totalQuantity-1);
           setTotalPrice(totalPrice-price);
@@ -77,7 +76,7 @@ function App() {
         {
           index: numId,
           quantity: 1,
-        }
+        },
       ]);
       setTotalQuantity(totalQuantity+1);
       setTotalPrice(totalPrice+price);
@@ -86,28 +85,33 @@ function App() {
 
   return (
     <Router>
-    <div className="App">
-    <Navbar total={totalQuantity}/>
-    <div className="content">
-      <Switch>
-        <Route path='/' exact>
-          <Home />
-        </Route>
-        <Route path='/shop' exact>
-          <Shop products={products}/>
-        </Route>
-        <Route path='/shop/:id'>
-          <ProductDetails products={products} changeState={changeState}/>
-        </Route>
-        <Route path='/cart'>
-          <Cart products={products} items={cartItems} total={totalPrice} changeState={changeState}/>
-        </Route>
-        <Route path='*'>
-          <NotFound />
-        </Route>
-      </Switch>
-    </div>
-    </div>
+      <div className="App">
+        <Navbar total={totalQuantity}/>
+        <div className="content">
+          <Switch>
+            <Route path='/' exact>
+              <Home />
+            </Route>
+            <Route path='/shop' exact>
+              <Shop products={products}/>
+            </Route>
+            <Route path='/shop/:id'>
+              <ProductDetails products={products} changeState={changeState}/>
+            </Route>
+            <Route path='/cart'>
+              <Cart 
+              products={products} 
+              items={cartItems} 
+              total={totalPrice} 
+              changeState={changeState}
+              />
+            </Route>
+            <Route path='*'>
+              <NotFound />
+            </Route>
+          </Switch>
+        </div>
+      </div>
     </Router>
   );
 }
