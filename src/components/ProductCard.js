@@ -7,6 +7,6 @@ const ProductCard = (props) => {
       <div>{price + ' USD'}</div>
     </div>
   );
-}
+};
  
 export default ProductCard;

@@ -186,6 +186,10 @@ html, body, #root {
   color: white;
 }
 
+.CartItem > button:focus {
+  outline: none;
+}
+
 .quantity-adjust {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

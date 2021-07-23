@@ -1,4 +1,4 @@
-import Carousel from './Carousel'
+import Carousel from './Carousel';
 
 const Home = () => {
   return (
@@ -6,6 +6,6 @@ const Home = () => {
       <Carousel />
     </div>
   );
-}
+};
  
 export default Home;

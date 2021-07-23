@@ -13,10 +13,10 @@ const ProductDetails = (props) => {
         <button className="add-to-cart" onClick={() => changeState(id)}>
         Add to Cart
         </button>
-        <Link to='/shop' className="go-back">{'< Go back'}</Link>
+        <Link to='/shopping-cart/shop' className="go-back">{'< Go back'}</Link>
       </div>
     </div>
   );
-}
+};
  
 export default ProductDetails;

@@ -8,7 +8,7 @@ const Shop = (props) => {
       {products.map((product, index) => {
         const {name, price, img1, img2} = product;
         return (
-          <Link to={`/shop/${index}`} key={index}>
+          <Link to={`/shopping-cart/shop/${index}`} key={index}>
             <ProductCard 
             name={name} 
             price={price} 

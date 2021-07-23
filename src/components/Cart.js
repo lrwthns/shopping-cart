@@ -20,9 +20,9 @@ const Cart = (props) => {
       })}
       </div>
       <div className="checkout-footer">
-        <Link to='/shop'>{'< Go Back'}</Link>
+        <Link to='/shopping-cart/shop'>{'< Go Back'}</Link>
         <div>{'TOTAL ' + total + ' USD'}</div>
-        <Link to='/'>{'Checkout >'}</Link>
+        <Link to='/shopping-cart/'>{'Checkout >'}</Link>
       </div>
     </div>
   );

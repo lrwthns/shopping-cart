@@ -100,16 +100,16 @@ function App() {
         <Navbar total={totalQuantity}/>
         <div className="content">
           <Switch>
-            <Route path='/' exact>
+            <Route path='/shopping-cart/' exact>
               <Home />
             </Route>
-            <Route path='/shop' exact>
+            <Route path='/shopping-cart/shop' exact>
               <Shop products={products}/>
             </Route>
-            <Route path='/shop/:id'>
+            <Route path='/shopping-cart/shop/:id'>
               <ProductDetails products={products} changeState={changeState}/>
             </Route>
-            <Route path='/cart'>
+            <Route path='/shopping-cart/cart'>
               <Cart 
               products={products} 
               items={cartItems} 
