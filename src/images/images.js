@@ -11,6 +11,8 @@ import j1 from './products/j1.jpg';
 import k1 from './products/k1.jpg';
 import l1 from './products/l1.jpg';
 import m1 from './products/m1.jpg';
+import n1 from './products/n1.jpg';
+import o1 from './products/o1.jpg';
 
 import a2 from './products/a2.jpg';
 import b2 from './products/b2.jpg';
@@ -25,6 +27,8 @@ import j2 from './products/j2.jpg';
 import k2 from './products/k2.jpg';
 import l2 from './products/l2.jpg';
 import m2 from './products/m2.jpg';
+import n2 from './products/n2.jpg';
+import o2 from './products/o2.jpg';
 
 const productImagesMain = [
   a1,
@@ -40,6 +44,8 @@ const productImagesMain = [
   k1,
   l1,
   m1,
+  n1,
+  o1,
 ]
 
 const productImagesSecondary = [
@@ -56,6 +62,8 @@ const productImagesSecondary = [
   k2,
   l2,
   m2,
+  n2,
+  o2,
 ]
 
 export {

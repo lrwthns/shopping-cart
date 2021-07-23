@@ -91,10 +91,12 @@ html, body, #root {
 
 .carousel-left {
   left: 0;
+  cursor: pointer;
 }
 
 .carousel-right {
   right: 0;
+  cursor: pointer;
 }
 
 .Carousel button:hover {
@@ -109,15 +111,19 @@ html, body, #root {
   margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 3rem;
+  gap: 1.5rem;
   justify-content: center;
-  margin-top: 0;
+  margin-bottom: 3rem;
 }
 
 .ProductCard {
   width: 35rem;
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-family: 'Karla';
+}
+
+.product-card-name {
+  font-size: 2rem;
 }
 
 .ProductCard > img {
@@ -167,11 +173,12 @@ html, body, #root {
 }
 
 .CartItem > button {
-  font-family: Karla;
+  font-family: 'Karla';
   font-size: 1.5rem;
   width: 6rem;
   height: 3rem;
   border: 1px solid darkgrey;
+  cursor: pointer;
 }
 
 .CartItem > button:hover {
@@ -201,6 +208,7 @@ html, body, #root {
   border: 1px solid darkgrey;
   font-family: 'Karla';
   text-align: center;
+  cursor: pointer;
 }
 
 .quantity-adjust > button:hover {
@@ -239,7 +247,6 @@ html, body, #root {
   width: 100%;
   padding-left: 5rem;
   box-sizing: border-box;
-  font-size: 2rem;
   font-family: 'Karla';
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -249,6 +256,15 @@ html, body, #root {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.product-desc {
+  font-size: 1.5rem;
+  width: 80%;
+}
+
+.product-price {
+  font-size: 2rem;
 }
 
 .product-name {
@@ -279,5 +295,5 @@ a {
 }
 
 a:hover {
-  color: rgb(39, 161, 209);
+  color: rgb(116, 167, 82);
 }
